@@ -13,11 +13,11 @@ let quees;
 
 function quees_function() {
     switch (quees) {
-        case "scissors": document.getElementById("computer").src="http://127.0.0.1:5500/img/tijera.png";
+        case "scissors": document.getElementById("computer").src="img/tijera.png";
         break;
-        case "rock": document.getElementById("computer").src="http://127.0.0.1:5500/img/roca.png";
+        case "rock": document.getElementById("computer").src="img/roca.png";
         break;
-        case "paper": document.getElementById("computer").src="http://127.0.0.1:5500/img/papel.png";
+        case "paper": document.getElementById("computer").src="img/papel.png";
         break;
     }
 }
@@ -51,7 +51,7 @@ function almacenar_roca() {
     let random = Math.floor(Math.random() * 3);
     seleccion = document.getElementById("rock").alt;
     console.log(seleccion);
-    document.getElementById("you").src="http://127.0.0.1:5500/img/roca.png";
+    document.getElementById("you").src="img/roca.png";
     operaciones(random);
     quees=posibilidades[random];
     quees_function();
@@ -63,7 +63,7 @@ function almacenar_papel() {
     let random = Math.floor(Math.random() * 3);
     seleccion = document.getElementById("paper").alt;
     console.log(seleccion);
-    document.getElementById("you").src="http://127.0.0.1:5500/img/papel.png";
+    document.getElementById("you").src="img/papel.png";
     operaciones(random);
     quees=posibilidades[random];
     quees_function();
@@ -74,7 +74,7 @@ function almacenar_tijera() {
     let random = Math.floor(Math.random() * 3);
     seleccion = document.getElementById("scissors").alt;
     console.log(seleccion);
-    document.getElementById("you").src="http://127.0.0.1:5500/img/tijera.png";
+    document.getElementById("you").src="img/tijera.png";
     operaciones(random);
     quees=posibilidades[random];
     quees_function();
