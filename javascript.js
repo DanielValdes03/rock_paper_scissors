@@ -2,33 +2,83 @@ let wins = 0;
 let loses = 0;
 let empates = 0;
 
-
 let posibilidades = ["rock", "paper", "scissors"];
 
 
 /*Almacenar los valores de las imagenes mediante el atributo alt*/ 
 
 let seleccion;
+let boleano;
+let quees;
+
+function quees_function() {
+    switch (quees) {
+        case "scissors": document.getElementById("computer").src="http://127.0.0.1:5500/img/tijera.png";
+        break;
+        case "rock": document.getElementById("computer").src="http://127.0.0.1:5500/img/roca.png";
+        break;
+        case "paper": document.getElementById("computer").src="http://127.0.0.1:5500/img/papel.png";
+        break;
+    }
+}
+
+function pop_up() {
+    if (wins==5) {
+        swal({
+            title: "Good job!",
+            text: "You win!",
+            icon: "success",
+            button: "Play Again!",
+          });
+          wins=0;
+          loses=0;
+          ties=0;
+    }
+    else if (loses==5) {
+        swal({
+            title: "Bad job!",
+            text: "You lose!",
+            icon: "error",
+            button: "Play Again!",
+          });
+          wins=0;
+          loses=0;
+          ties=0;
+    }
+}
 
 function almacenar_roca() {
     let random = Math.floor(Math.random() * 3);
     seleccion = document.getElementById("rock").alt;
     console.log(seleccion);
+    document.getElementById("you").src="http://127.0.0.1:5500/img/roca.png";
     operaciones(random);
+    quees=posibilidades[random];
+    quees_function();
+    pop_up();
+    
 }
 
 function almacenar_papel() {
     let random = Math.floor(Math.random() * 3);
     seleccion = document.getElementById("paper").alt;
     console.log(seleccion);
+    document.getElementById("you").src="http://127.0.0.1:5500/img/papel.png";
     operaciones(random);
+    quees=posibilidades[random];
+    quees_function();
+    pop_up();
 }
 
 function almacenar_tijera() {
     let random = Math.floor(Math.random() * 3);
     seleccion = document.getElementById("scissors").alt;
     console.log(seleccion);
+    document.getElementById("you").src="http://127.0.0.1:5500/img/tijera.png";
     operaciones(random);
+    quees=posibilidades[random];
+    quees_function();
+    pop_up();
 }
 
 /*Condiciones para ganar, perder o empate*/
@@ -45,17 +95,18 @@ else {
         (seleccion == "scissors" && posibilidades[random] != "rock")
     ) {
         wins++;
+        boleano=true;
     }
     else {
         loses++;
+        boleano=false;
     }
 }
-console.log("Yo he escogido " + seleccion + " la maquina ha escogido " + posibilidades[random]);
-console.log("El numero de empates es " + empates);
-console.log("Las wins son" + wins);
-console.log("Las loses son" + loses);
+document.getElementById("result_wins").innerHTML=wins;
+document.getElementById("result_loses").innerHTML=loses;
+document.getElementById("result_ties").innerHTML=empates;
+
+
 
 }
-
-/*Resultado*/ 
 
